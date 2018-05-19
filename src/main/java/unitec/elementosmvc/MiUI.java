@@ -27,7 +27,7 @@ public class MiUI extends UI{
         Label etiqueta=new Label("Bienvenido a mi aplicacion!!");
         etiqueta.addStyleName(ValoTheme.LABEL_H2); 
         
-        Button boton=new Button("ingresar!!");
+        Button boton=new Button("ingresar ya!!");
         boton.addStyleName(ValoTheme.BUTTON_DANGER);
         //Agregamos la etiqueta y el boton a el layout
         layout.addComponent(etiqueta);
