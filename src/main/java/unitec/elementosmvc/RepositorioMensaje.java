@@ -12,5 +12,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author campitos
  */
 public interface RepositorioMensaje extends MongoRepository<Mensaje, String> {
+    public Mensaje findByCuerpo(String cuerpo);
+        
     
 }

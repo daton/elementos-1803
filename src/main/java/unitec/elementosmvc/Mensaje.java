@@ -5,6 +5,7 @@
  */
 package unitec.elementosmvc;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import org.springframework.data.annotation.Id;
 
@@ -12,18 +13,34 @@ import org.springframework.data.annotation.Id;
  *
  * @author campitos
  */
+
 public class Mensaje {
     
     @Id
     private String id;
     
+   
     private LocalDate fecha;
+    
+        private String cuerpo;
+
+    public Mensaje(String id, LocalDate fecha, String cuerpo) {
+        this.id = id;
+        this.fecha = fecha;
+        this.cuerpo = cuerpo;
+    }
+    
 
     public Mensaje(LocalDate fecha, String cuerpo) {
         this.fecha = fecha;
         this.cuerpo = cuerpo;
     }
-    private String cuerpo;
+
+
+    @Override
+    public String toString() {
+        return "Mensaje{" + "id=" + id + ", fecha=" + fecha + ", cuerpo=" + cuerpo + '}';
+    }
 
     public Mensaje(String cuerpo) {
         this.cuerpo = cuerpo;

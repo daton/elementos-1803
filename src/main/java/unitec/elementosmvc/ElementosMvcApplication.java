@@ -7,22 +7,38 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ElementosMvcApplication implements CommandLineRunner{
+public class ElementosMvcApplication implements CommandLineRunner {
 
-    @Autowired ServicioTarjeta servicio;
-    @Autowired RepositorioMensaje repoMensaje;
-    
-	public static void main(String[] args) {
-		SpringApplication.run(ElementosMvcApplication.class, args);
-                
-                
-	}
+    @Autowired
+    ServicioTarjeta servicio;
+    @Autowired
+    RepositorioMensaje repoMensaje;
+
+    public static void main(String[] args) {
+        SpringApplication.run(ElementosMvcApplication.class, args);
+
+    }
 
     @Override
     public void run(String... args) throws Exception {
-         servicio.obtenerSaldo().obtenerSaldo();
-         LocalDate fecha=LocalDate.now();
-         repoMensaje.save(new Mensaje(fecha,"Mi primer mensaje"));
+
+       // LocalDate fecha = LocalDate.now();
+        // repoMensaje.save(new Mensaje("hola",fecha,"cerdito"));
+
+        //buscar todos los mensajes ya
+      //   for( Mensaje mensa:   repoMensaje.findAll()){
+      //    System.out.println(mensa);
+   // }
          
+        //Buscar por id 
+          
+       //  System.out.println(repoMensaje.findByCuerpo("cerdito"));
+       
+       //Sigue borrar
+     //  Mensaje m=new Mensaje();
+     //  m.setId("hola"); 
+     //  repoMensaje.delete(m);
+       
+        
     }
 }
