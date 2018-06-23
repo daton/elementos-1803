@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import static org.springframework.http.converter.json.Jackson2ObjectMapperBuilder.json;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,5 +58,31 @@ public class ControladorMensaje {
      return estatus;
  }
  
+ //Caso d: Actulizar
+  @PutMapping("/mensaje")
+ public Estatus actualizar(@RequestBody String json)throws Exception{
+     
+     //Primero convertimos este string json a un obejto java
+     ObjectMapper maper=new ObjectMapper();
+    Mensaje mensa=  maper.readValue(json, Mensaje.class);
+    repoMensa.save(mensa);
+     System.out.println("este objeto se convirtio:"+mensa);
+     Estatus estatus=new Estatus();
+     estatus.setSuccess(true);
+     estatus.setMensaje("Mensaje guardado con exito!!!");
+     return estatus;
+ }
+ 
+ //Caso e) Borrar
+ @DeleteMapping("/mensaje/{id}")
+ public Estatus borrarPoRId(@PathVariable String id){
+     Mensaje mensa=new Mensaje();
+     
+     repoMensa.deleteById(id);
+     Estatus e=new Estatus();
+     e.setSuccess(true);
+     e.setMensaje("Mensaje borrado con exito!");
+     return e;
+ }
     
 }
