@@ -12,7 +12,7 @@ public class ElementosMvcApplication implements CommandLineRunner {
     @Autowired
     ServicioTarjeta servicio;
     @Autowired
-    RepositorioMensaje repoMensaje;
+    RepositorioTrabajador repotra;
 
     public static void main(String[] args) {
         SpringApplication.run(ElementosMvcApplication.class, args);
@@ -39,6 +39,24 @@ public class ElementosMvcApplication implements CommandLineRunner {
      //  m.setId("hola"); 
      //  repoMensaje.delete(m);
        
+        TrabajadorPlanta tp=new TrabajadorPlanta();
+        tp.setAntiguedad(2);
+        tp.setId("primero");
+        tp.setNombre("Juan");
+        tp.setSueldo_base(4500);
+        
+        TrabajadorHonorarios t=new TrabajadorHonorarios();
+        t.setNombre("Ana");
+        t.setSueldo_base(44500);
+      // repotra.save(t);
+        System.out.println("Antiguedad "+ repotra.findAll());
+        
+       for(Trabajador tt:repotra.findAll()){
+           if(tt instanceof TrabajadorPlanta){
+               System.out.println("antiuedd "+((TrabajadorPlanta) tt).getAntiguedad());  
+           }
+           System.out.println("sueldo "+tt.getSueldo_base()); 
+       }
         
     }
 }

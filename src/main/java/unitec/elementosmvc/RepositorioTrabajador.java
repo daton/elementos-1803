@@ -5,7 +5,12 @@
  */
 package unitec.elementosmvc;
 
-public interface Nomina {
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-    public void pagar();
+/**
+ *
+ * @author juan_
+ */
+public interface RepositorioTrabajador extends MongoRepository<Trabajador, String>{
+    
 }
